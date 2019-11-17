@@ -1,19 +1,6 @@
 import React from 'react';
-// import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
-
-// class Result extends React.Component {
-//   render() {
-//     return (
-//       <button className="result">
-//         <a className="short-url">
-//           {this.props.url}
-//         </a>
-//       </button>
-//     );
-//   };
-// }
 
 export class App extends React.Component {
   constructor(props) {
@@ -28,13 +15,11 @@ export class App extends React.Component {
     this.setState({ originalURL: event.target.value });
   }
   getShorter = (url) => {
-    // alert("You are submitting " + this.state.shortenURL);
     axios.post(`https://localhost:5000/shortener`,
       {
         "originalUrl": url
       })
       .then(res => {
-        // console.log(res);
         this.setState({ shortenURL: res.data.shortUrl, urlCode: res.data.urlCode });
       });
   }

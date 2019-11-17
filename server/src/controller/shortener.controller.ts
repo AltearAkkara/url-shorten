@@ -1,5 +1,4 @@
 import * as express from 'express';
-// import * as nanoid from 'nanoid';
 import Controller from '../interface/controller.interface';
 import UrlShorten from '../interface/urlShorten.interface';
 import urlShortenModel from '../model/urlShortenModel.model';
@@ -23,7 +22,6 @@ class ShortenerController implements Controller {
 
     //GET API for redirecting to Original URL
     private redirect = async (request: express.Request, response: express.Response) => {
-        // response.status(200).json({ msg: `redirect to ${request.params.code}`});
         const urlCode = request.params.code;
         console.log(request.params);
         const item = await this.urlShorten.findOne({ urlCode: urlCode });
